@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentiScan — Анализ тональности текста</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 18C12 18 15 15 20 15C25 15 28 18 28 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="15" cy="22" r="1.5" fill="currentColor"/>
+                    <circle cx="25" cy="22" r="1.5" fill="currentColor"/>
+                    <path d="M14 27C14 27 16 29 20 29C24 29 26 27 26 27" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h1>SentiScan</h1>
+            </div>
+            <p class="tagline">Понимаем текст — видим настроение</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <h2>Анализ тональности</h2>
+                <p class="description">Введите текст отзыва на русском или английском языке, и мы определим его эмоциональную окраску</p>
+
+                <textarea
+                    id="text-input"
+                    placeholder="Например: Отличный фильм! Очень понравился, рекомендую всем. / This movie was absolutely amazing!"
+                    rows="6"
+                ></textarea>
+
+                <div class="button-group">
+                    <button id="analyze-btn" class="btn btn-primary" onclick="analyze()">
+                        <span class="btn-text">Анализировать</span>
+                        <span class="btn-loader" style="display: none;">
+                            <span class="spinner"></span>
+                            Анализ...
+                        </span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearInput()">Очистить</button>
+                </div>
+
+                <div id="error-message" class="error-message" style="display: none;"></div>
+            </section>
+
+            <!-- Result Section -->
+            <section id="result-section" class="result-section" style="display: none;">
+                <h2>Результат анализа</h2>
+
+                <div id="result-card" class="result-card">
+                    <div class="result-header">
+                        <div class="result-icon">
+                            <svg id="result-icon-svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <!-- Icon will be set by JS -->
+                            </svg>
+                        </div>
+                        <div class="result-info">
+                            <h3 id="result-label">Позитивный</h3>
+                            <p id="confidence-text">Уверенность: 88%</p>
+                            <p id="language-text" class="language-badge">Язык: 🇬🇧 Английский</p>
+                        </div>
+                    </div>
+
+                    <div class="confidence-bar-container">
+                        <div id="confidence-bar" class="confidence-bar"></div>
+                    </div>
+
+                    <div class="probabilities">
+                        <div class="prob-item">
+                            <span class="prob-label">Позитивный:</span>
+                            <span id="prob-positive" class="prob-value">88%</span>
+                        </div>
+                        <div class="prob-item">
+                            <span class="prob-label">Негативный:</span>
+                            <span id="prob-negative" class="prob-value">12%</span>
+                        </div>
+                    </div>
+
+                    <div class="top-words-section">
+                        <h4>Ключевые слова</h4>
+                        <div id="top-words" class="top-words"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section id="history-section" class="history-section" style="display: none;">
+                <h2>История анализов</h2>
+                <div id="history-list" class="history-list"></div>
+                <button class="btn btn-secondary btn-small" onclick="clearHistory()">Очистить историю</button>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Учебный проект по курсу «Основы искусственного интеллекта»</p>
+            <p class="tech-info">TF-IDF + Logistic Regression | IMDB Dataset (50k reviews)</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python app.py)",
+      "Bash(curl -s http://localhost:5000/health)",
+      "Bash(python -c \"import flask; print\\('Flask OK'\\)\")",
+      "Bash(python -c \"import flask_cors; print\\('Flask-CORS OK'\\)\")",
+      "Bash(./myenv/Scripts/python.exe --version)",
+      "Bash(./myenv/Scripts/python.exe app.py)",
+      "Bash(./myenv/bin/python --version)",
+      "Bash(./myenv/bin/python app.py)",
+      "Bash(rm:*)",
+      "Bash(python3 -m venv myenv)",
+      "Bash(where python:*)",
+      "Bash(C:\\\\Users\\\\Levi\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe:*)",
+      "Bash(\"C:\\\\Users\\\\Levi\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe\" -m venv myenv)",
+      "Bash(./myenv/Scripts/pip.exe install:*)",
+      "Bash(curl:*)",
+      "Bash(ls -lh data/*.csv)",
+      "Bash(./myenv/Scripts/python.exe -c \"from utils.preprocess import clean_text; print\\(clean_text\\('Этот фильм был ужасен. Полная трата времени.'\\)\\)\")",
+      "Bash(./myenv/Scripts/python.exe create_russian_dataset.py)",
+      "Bash(./myenv/Scripts/python.exe merge_datasets.py)",
+      "Bash(sed:*)",
+      "Bash(./myenv/Scripts/python.exe train.py)",
+      "Bash(pkill:*)",
+      "Bash(taskkill //F //IM python.exe)",
+      "Bash(iconv -f UTF-8 -t UTF-8)",
+      "Bash(start:*)",
+      "Bash(./myenv/Scripts/python.exe -c ':*)"
+    ]
+  }
+}

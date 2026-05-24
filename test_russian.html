@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Russian</title>
+</head>
+<body>
+    <h1>Тест русского языка</h1>
+    <button onclick="testPositive()">Тест: Позитивный отзыв</button>
+    <button onclick="testNegative()">Тест: Негативный отзыв</button>
+    <pre id="result"></pre>
+
+    <script>
+        async function testPositive() {
+            const response = await fetch('http://localhost:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                },
+                body: JSON.stringify({
+                    text: 'Отличный фильм! Очень понравился, рекомендую всем.'
+                })
+            });
+            const data = await response.json();
+            document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        }
+
+        async function testNegative() {
+            const response = await fetch('http://localhost:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                },
+                body: JSON.stringify({
+                    text: 'Ужасный фильм. Полная трата времени и денег.'
+                })
+            });
+            const data = await response.json();
+            document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        }
+    </script>
+</body>
+</html>
