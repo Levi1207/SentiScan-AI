@@ -692,7 +692,7 @@ Actual Positive   4 420         580
 ### Шаг 1: Установка зависимостей
 
 ```bash
-git clone https://github.com/yourusername/sentiscan.git
+git clone https://github.com/Levi1207/sentiscan.git
 cd sentiscan
 pip install -r requirements.txt
 ```
